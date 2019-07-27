@@ -1,0 +1,17 @@
+# Logs
+*.log
+yarn-debug.log*
+yarn-error.log*
+
+# OS Files
+.DS_Store
+
+# IDE Files
+.idea
+.vscode
+
+# Output directory JavaScript files
+dist/
+
+# Dependency directories
+node_modules/
