@@ -1,5 +1,9 @@
 # goodcodes-parser
 
+[![travis build](https://img.shields.io/travis/jbdemonte/goodcodes-parser.svg)](https://travis-ci.org/jbdemonte/goodcodes-parser)
+[![Coverage Status](https://coveralls.io/repos/github/jbdemonte/goodcodes-parser/badge.svg?branch=master)](https://coveralls.io/github/jbdemonte/goodcodes-parser?branch=master)
+![node (tag)](https://img.shields.io/node/v/goodcodes-parser/latest.svg)
+
 ## Description
 
 This tools extracts [GoodCodes](http://emulation.gametechwiki.com/index.php/GoodTools) from ROM names an returns a structured dataset.
