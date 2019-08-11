@@ -1,16 +1,20 @@
 import { CodeHandler } from './handler.types';
 
+// based on http://emulation.gametechwiki.com/index.php/GoodTools
 const patterns = {
+  // GoodGen
   '1': 'Japan & Korea',
-  '4': 'USA & BrazilNTSC',
+  '4': 'USA & Brazil',
 
+  // standard
   a: 'Australia',
-  b: 'non USA',
-  c: 'China',
-  d: 'Dutch',
+  as: 'Asia',
+  b: 'Brazil',
+  ch: 'China',
+  c: 'Canada',
+  d: 'Netherlands',
   e: 'Europe',
   f: 'France',
-  fc: 'French Canadian',
   fn: 'Finland',
   g: 'Germany',
   gr: 'Greece',
@@ -19,17 +23,18 @@ const patterns = {
   j: 'Japan',
   k: 'Korea',
   nl: 'Netherlands',
-  pd: 'Public domain',
+  no: 'Norway',
+  r: 'Russia',
   s: 'Spain',
   sw: 'Sweden',
   u: 'USA',
-  unk: 'Unknown',
-  unl: 'Unlicensed',
-  w: 'World',
-
-  // ADDED from ISO Alpha 2
-  br: 'Brazil',
+  uk: 'United Kingdom',
   tw: 'Taiwan',
+
+  w: 'World',
+  unl: 'Unlicensed',
+  pd: 'Public domain',
+  unk: 'Unknown',
 };
 
 type CountriesMap = typeof patterns;
@@ -101,7 +106,7 @@ const getFromCodes = (() => {
 })();
 
 export const countriesHandler: CodeHandler = {
-  tags: ['[f]', '[f#]', '[f#C]', '[f#+C]', '[f#+#C]'],
+  tags: ['(X)', '(X, Y, ...)'],
   key: 'countries',
   title: 'Country list',
   description: 'List of country for a ROM',

@@ -51,7 +51,7 @@ type BaseResult = {
 
 export type CodeResult = Partial<BoolResult & NumberResult & VersionedResult & BaseResult>;
 
-export type ParseResult = {
+export type GoodCodeResult = {
   file: string;
   cleaned: string;
   rom: string;

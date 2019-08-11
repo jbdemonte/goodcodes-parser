@@ -1,0 +1,14 @@
+node_modules
+.idea
+.gitignore
+.npmignore
+.DS_Store
+coverage
+src
+.travis.yml
+.prettierrc
+jest.json
+tsconfig.json
+tslint.json
+yarn.lock
+*.log

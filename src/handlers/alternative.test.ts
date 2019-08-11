@@ -10,7 +10,7 @@ test('with minor as +', () => {
   expect(result.codes).toEqual(expect.objectContaining({ alternative: { major: 1, minor: 1 } }));
 });
 
-['[a1]', '[a1C]', '(alt 1)'].forEach(tag => {
+['[a1]', '[a1C]', '(Alt 1)'].forEach(tag => {
   test(`alternative ${tag}`, () => {
     const result = parse(`Addams Family, The (Beta) ${tag}`);
     expect(result.codes).toEqual(expect.objectContaining({ alternative: { major: 1, minor: 0 } }));
