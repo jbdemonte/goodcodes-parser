@@ -21,7 +21,7 @@ yarn add goodcodes-parser
 ## Usage
 
 ```typescript
-import { parse } from 'goodcode-parser';
+import { parse } from 'goodcodes-parser';
 const result = parse('Zoop (U) [!].gen');
 console.log(result);
 ```

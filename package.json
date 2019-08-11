@@ -1,6 +1,6 @@
 {
-    "name": "goodcode-parser",
-    "version": "1.0.0",
+    "name": "goodcodes-parser",
+    "version": "1.0.1",
     "description": "ROM name parser for GoodCodes",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
