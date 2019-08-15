@@ -16,7 +16,7 @@ test('compound countries', () => {
 });
 
 test('avoid country mismatch', () => {
-  // Alpha should not be taken as (A) language
+  // Alpha should not be taken as (A)
   const result = parse('WWF Wrestlemania Arcade (Alpha) [!].gen');
   expect(result.codes.countries).toEqual(undefined);
 });

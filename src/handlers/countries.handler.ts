@@ -82,7 +82,7 @@ function getFromNames(codes: string): CountriesValue | undefined {
 }
 
 const getFromCodes = (() => {
-  // forge regex on language
+  // forge regex on country code
   const items = keys.map(key => {
     return {
       key,

@@ -8,7 +8,7 @@ export type VersionedKey = 'alternative' | 'fixed' | 'overdumped' | 'pirated' | 
 
 export type VersionKey = 'stable' | 'alpha' | 'beta' | 'preRelease' | 'prototype' | 'demo' | 'sample' | 'old';
 
-export type CodeKeys = BoolKey | VersionedKey | NumberKey | 'version' | 'format' | 'language' | 'countries';
+export type CodeKeys = BoolKey | VersionedKey | NumberKey | 'version' | 'format' | 'translation' | 'countries';
 
 export type VersionedValue = { major: number; minor: number };
 
@@ -20,7 +20,7 @@ export type VersionValue = { [key in VersionKey]?: DeepVersionedValue };
 
 export type FormatValue = { pal: true } | { ntsc: true };
 
-export type LanguageValue = {
+export type translationValue = {
   latest: boolean;
   code: string;
   name: string;
@@ -45,7 +45,7 @@ type BaseResult = {
   hacked: boolean | HackedValue;
   version: VersionValue;
   format: FormatValue;
-  language: LanguageValue;
+  translation: translationValue;
   countries: CountriesValue;
 };
 
