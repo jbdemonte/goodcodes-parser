@@ -2,7 +2,7 @@ import { CountriesValue } from './handlers/countries.handler';
 
 export type BoolKey = 'good' | 'pending' | 'compilation';
 
-export type NumberKey = 'revision' | 'languages';
+export type NumberKey = 'revision' | 'languageCount';
 
 export type VersionedKey = 'alternative' | 'fixed' | 'overdumped' | 'pirated' | 'bad' | 'trained' | 'hacked';
 

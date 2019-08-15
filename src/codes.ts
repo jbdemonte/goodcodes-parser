@@ -9,7 +9,7 @@ import { formatHandler } from './handlers/format.handler';
 import { goodHandler } from './handlers/good.handler';
 import { hackedHandler } from './handlers/hacked.handler';
 import { CodeHandler } from './handlers/handler.types';
-import { languagesHandler } from './handlers/languages.handler';
+import { languageCountHandler } from './handlers/language-count.handler';
 import { overdumpedHandler } from './handlers/overdumped.handler';
 import { pendingHandler } from './handlers/pending.handler';
 import { piratedHandler } from './handlers/pirated.handler';
@@ -33,7 +33,7 @@ const handlers: CodeHandler[] = [
   numericVersionHandler,
   alphaNumericVersionHandler,
   translationHandler,
-  languagesHandler,
+  languageCountHandler,
   formatHandler,
   compilationHandler,
   countriesHandler,

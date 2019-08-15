@@ -1,9 +1,9 @@
 import { CodeHandler } from './handler.types';
 
-export const languagesHandler: CodeHandler = {
+export const languageCountHandler: CodeHandler = {
   tag: '(M#)',
-  key: 'languages',
-  title: 'Multilanguage',
+  key: 'languageCount',
+  title: 'Language count',
   description: 'Number of languages (selectable by a menu)',
   re: /^\(M(\d+)\)$/,
   cast(match) {
