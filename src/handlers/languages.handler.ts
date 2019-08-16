@@ -1,23 +1,11 @@
-import { Language, languages } from '../tools/languages.tools';
+import { Language, languages, standardizeLanguages } from '../tools/internationalization.tools';
 import { CodeHandler } from './handler.types';
 
 const map: { [key: string]: Language } = {};
 
-const standardizeRE = new RegExp(
-  languages
-    .filter(language => language.name.indexOf(' ') >= 0)
-    .map(language => `(${language.name.toLowerCase()})`)
-    .join('|'),
-  'g',
-);
-
-function standardize(name: string): string {
-  return name.toLowerCase().replace(standardizeRE, tag => tag.replace(/\s+/, '-'));
-}
-
 languages.forEach(language => {
   map[language.code.toLowerCase()] = language;
-  map[standardize(language.name)] = language;
+  map[standardizeLanguages(language.name)] = language;
 });
 
 export const languagesHandler: CodeHandler = {
@@ -27,8 +15,7 @@ export const languagesHandler: CodeHandler = {
   description: 'List of language for a ROM',
   re: /^\(([a-z, ]+)\)$/i,
   cast(match) {
-    return standardize(match[1])
-      .toLowerCase()
+    return standardizeLanguages(match[1])
       .split(/[,\s]+/)
       .map(tag => tag.trim())
       .map(tag => (map[tag] ? { ...map[tag] } : null))

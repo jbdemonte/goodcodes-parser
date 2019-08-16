@@ -1,4 +1,4 @@
-import { Language, languages } from '../tools/languages.tools';
+import { Language, languages } from '../tools/internationalization.tools';
 import { translationValue } from '../typing';
 import { CodeHandler } from './handler.types';
 

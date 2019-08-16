@@ -1,5 +1,4 @@
-import { CountriesValue } from './handlers/countries.handler';
-import { Language } from './tools/languages.tools';
+import { Country, Language } from './tools/internationalization.tools';
 
 export type BoolKey = 'good' | 'pending' | 'compilation';
 
@@ -47,7 +46,7 @@ type BaseResult = {
   version: VersionValue;
   format: FormatValue;
   translation: translationValue;
-  countries: CountriesValue;
+  countries: Country[];
   languages: Language[];
 };
 
