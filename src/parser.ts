@@ -1,4 +1,5 @@
 import { parseCode } from './codes';
+import { addDefaultLanguage } from './handlers/default-language.handler';
 import { cleanFileName, removeExtension } from './tools/file.tools';
 import { GoodCodeResult } from './typing';
 
@@ -24,6 +25,8 @@ export function parse(file: string): GoodCodeResult {
       result.unknown.push(code);
     }
   });
+
+  addDefaultLanguage(result);
 
   return result;
 }
