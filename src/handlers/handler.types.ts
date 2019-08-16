@@ -1,7 +1,10 @@
+import { Language } from '../tools/languages.tools';
 import { CodeKeys, FormatValue, HackedValue, VersionedValue, VersionValue } from '../typing';
 import { CountriesValue } from './countries.handler';
 
-export type Caster = (match: any) => boolean | number | undefined | VersionedValue | HackedValue | VersionValue | FormatValue | CountriesValue;
+export type Caster = (
+  match: any,
+) => boolean | number | undefined | VersionedValue | HackedValue | VersionValue | FormatValue | CountriesValue | Language[];
 
 export type CodeHandler = {
   tag?: string;

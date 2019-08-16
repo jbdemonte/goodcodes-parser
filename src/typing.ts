@@ -1,4 +1,5 @@
 import { CountriesValue } from './handlers/countries.handler';
+import { Language } from './tools/languages.tools';
 
 export type BoolKey = 'good' | 'pending' | 'compilation';
 
@@ -8,7 +9,7 @@ export type VersionedKey = 'alternative' | 'fixed' | 'overdumped' | 'pirated' | 
 
 export type VersionKey = 'stable' | 'alpha' | 'beta' | 'preRelease' | 'prototype' | 'demo' | 'sample' | 'old';
 
-export type CodeKeys = BoolKey | VersionedKey | NumberKey | 'version' | 'format' | 'translation' | 'countries';
+export type CodeKeys = BoolKey | VersionedKey | NumberKey | 'version' | 'format' | 'translation' | 'countries' | 'languages';
 
 export type VersionedValue = { major: number; minor: number };
 
@@ -47,6 +48,7 @@ type BaseResult = {
   format: FormatValue;
   translation: translationValue;
   countries: CountriesValue;
+  languages: Language[];
 };
 
 export type CodeResult = Partial<BoolResult & NumberResult & VersionedResult & BaseResult>;

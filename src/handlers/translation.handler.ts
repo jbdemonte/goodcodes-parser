@@ -1,12 +1,12 @@
-import { LanguageDescriptor, languages } from '../tools/languages.tools';
+import { Language, languages } from '../tools/languages.tools';
 import { translationValue } from '../typing';
 import { CodeHandler } from './handler.types';
 
-type TranslationDescriptor = LanguageDescriptor & { re: RegExp };
+type TranslationDescriptor = Language & { re: RegExp };
 
 const translations: TranslationDescriptor[] = languages.map(language => ({
   ...language,
-  re: new RegExp('^(' + language.key + ')([0-9.]+(%?))?_?(.*)$'),
+  re: new RegExp('^(' + language.code + ')([0-9.]+(%?))?_?(.*)$'),
 }));
 
 export const translationHandler: CodeHandler = {
@@ -25,7 +25,7 @@ export const translationHandler: CodeHandler = {
       const codeMatch = code.match(translation.re);
       if (codeMatch) {
         return {
-          code: translation.key.toLowerCase(),
+          code: translation.code.toLowerCase(),
           name: translation.name,
           percent: (codeMatch[3] ? codeMatch[2] : '') || '',
           version: (codeMatch[3] ? '' : codeMatch[2]) || '',

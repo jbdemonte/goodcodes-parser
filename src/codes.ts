@@ -10,6 +10,7 @@ import { goodHandler } from './handlers/good.handler';
 import { hackedHandler } from './handlers/hacked.handler';
 import { CodeHandler } from './handlers/handler.types';
 import { languageCountHandler } from './handlers/language-count.handler';
+import { languagesHandler } from './handlers/languages.handler';
 import { overdumpedHandler } from './handlers/overdumped.handler';
 import { pendingHandler } from './handlers/pending.handler';
 import { piratedHandler } from './handlers/pirated.handler';
@@ -37,6 +38,7 @@ const handlers: CodeHandler[] = [
   formatHandler,
   compilationHandler,
   countriesHandler,
+  languagesHandler,
 ];
 
 export function parseCode(code: string): CodeResult | undefined {
