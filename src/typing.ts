@@ -63,5 +63,5 @@ export type GoodCodeResult = {
   cleaned: string;
   rom: string;
   codes: CodeResult;
-  unknown: string[];
+  unknown?: string[];
 };

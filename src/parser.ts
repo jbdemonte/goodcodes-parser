@@ -12,7 +12,6 @@ export function parse(file: string): GoodCodeResult {
     cleaned,
     rom: removeExtension(cleaned),
     codes: {},
-    unknown: [],
   };
 
   const codes = file.match(codeRE) || [];
@@ -22,6 +21,9 @@ export function parse(file: string): GoodCodeResult {
     if (value) {
       result.codes = { ...result.codes, ...value };
     } else {
+      if (!result.unknown) {
+        result.unknown = [];
+      }
       result.unknown.push(code);
     }
   });
