@@ -32,14 +32,11 @@ console.log(result);
     "cleaned": "Zoop.gen",
     "rom": "Zoop",
     "codes": {
-        "countries": {
-            "u": {
-                "name": "USA"
-            }
-        },
+        "countries": [
+            { "code": "U", "name": "USA" }
+        ],
         "good": true
-    },
-    "unknown": []
+    }
 }
 ```
 
