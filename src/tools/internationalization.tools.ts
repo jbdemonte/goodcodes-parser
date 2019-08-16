@@ -1,5 +1,11 @@
-export type Language = { code: string; name: string };
-export type Country = { code: string; name: string };
+export interface Language {
+  code: string;
+  name: string;
+}
+export interface Country {
+  code: string;
+  name: string;
+}
 
 export const languages: Language[] = [
   { code: 'Alb', name: 'Albanian' },

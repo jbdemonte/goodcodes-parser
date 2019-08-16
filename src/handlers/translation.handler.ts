@@ -1,5 +1,5 @@
 import { Language, languages } from '../tools/internationalization.tools';
-import { translationValue } from '../typing';
+import { TranslationValue } from '../typing';
 import { CodeHandler } from './handler.types';
 
 type TranslationDescriptor = Language & { re: RegExp };
@@ -18,14 +18,14 @@ export const translationHandler: CodeHandler = {
   cast(match) {
     const latest = match[1] === '+';
     const code: string = match[2];
-    const reducer = (result: translationValue | null, translation: TranslationDescriptor) => {
+    const reducer = (result: TranslationValue | null, translation: TranslationDescriptor) => {
       if (result) {
         return result;
       }
       const codeMatch = code.match(translation.re);
       if (codeMatch) {
         return {
-          code: translation.code.toLowerCase(),
+          code: translation.code,
           name: translation.name,
           percent: (codeMatch[3] ? codeMatch[2] : '') || '',
           version: (codeMatch[3] ? '' : codeMatch[2]) || '',

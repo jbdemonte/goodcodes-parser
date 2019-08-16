@@ -10,24 +10,30 @@ export type VersionKey = 'stable' | 'alpha' | 'beta' | 'preRelease' | 'prototype
 
 export type CodeKeys = BoolKey | VersionedKey | NumberKey | 'version' | 'format' | 'translation' | 'countries' | 'languages';
 
-export type VersionedValue = { major: number; minor: number };
+export interface VersionedValue {
+  major: number;
+  minor: number;
+}
 
-export type DeepVersionedValue = VersionedValue & { patch: number };
+export interface DeepVersionedValue extends VersionedValue {
+  patch: number;
+}
 
-export type HackedValue = VersionedValue & { intro?: boolean; introRemoved?: boolean };
+export interface HackedValue extends VersionedValue {
+  intro?: boolean;
+  introRemoved?: boolean;
+}
 
 export type VersionValue = { [key in VersionKey]?: DeepVersionedValue };
 
 export type FormatValue = { pal: true } | { ntsc: true };
 
-export type translationValue = {
+export interface TranslationValue extends Language {
   latest: boolean;
-  code: string;
-  name: string;
   percent: string;
   author: string;
   version: string;
-};
+}
 
 type NumberResult = {
   [key in NumberKey]: number;
@@ -41,14 +47,14 @@ type VersionedResult = {
   [key in VersionedKey]: boolean | VersionedValue;
 };
 
-type BaseResult = {
+interface BaseResult {
   hacked: boolean | HackedValue;
   version: VersionValue;
   format: FormatValue;
-  translation: translationValue;
+  translation: TranslationValue;
   countries: Country[];
   languages: Language[];
-};
+}
 
 export type CodeResult = Partial<BoolResult & NumberResult & VersionedResult & BaseResult>;
 
