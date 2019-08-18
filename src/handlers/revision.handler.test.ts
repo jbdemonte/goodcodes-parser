@@ -10,6 +10,11 @@ test('(REV03)', () => {
   expect(result.codes.revision).toEqual(3);
 });
 
+test('(REVA)', () => {
+  const result = parse('Action 52 (Active Enterprises) (REVA) [!].nes');
+  expect(result.codes.revision).toEqual(1);
+});
+
 test('(Rev D)', () => {
   const result = parse('Alien 3 (UE) (Rev D) [h1C][o1].gen');
   expect(result.codes.revision).toEqual(4);

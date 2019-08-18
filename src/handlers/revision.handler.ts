@@ -14,7 +14,7 @@ export const revisionHandler: CodeHandler = {
   key: 'revision',
   title: 'Revision number',
   description: '0 is the earliest.',
-  re: /^\((?:REV|PRG)\s*(?:(\d+)|(?:\s+([a-z])))\)$/i,
+  re: /^\((?:REV|PRG)\s*(?:(\d+)|([a-z]))\)$/i,
   cast(match) {
     return match[2] ? letterToVersion(match[2]) : parseInt(match[1], 10);
   },
