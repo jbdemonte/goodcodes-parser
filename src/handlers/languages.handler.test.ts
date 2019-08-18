@@ -29,3 +29,8 @@ test('Special case of Portuguese', () => {
   const result = parse('Example (Brazilian Portuguese, Portuguese).nes');
   expect(result.codes.languages).toEqual([{ code: 'Bra', name: 'Brazilian Portuguese' }, { code: 'Por', name: 'Portuguese' }]);
 });
+
+test('return undefined', () => {
+  const result = parse('Action 52 (Active Enterprises) [!].nes');
+  expect(result.codes.languages).not.toBeDefined();
+});

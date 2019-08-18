@@ -15,10 +15,14 @@ export const languagesHandler: CodeHandler = {
   description: 'List of language for a ROM',
   re: /^\(([a-z, ]+)\)$/i,
   cast(match) {
-    return standardizeLanguages(match[1])
+    const list = standardizeLanguages(match[1])
       .split(/[,\s]+/)
       .map(tag => tag.trim())
       .map(tag => (map[tag] ? { ...map[tag] } : null))
       .filter((language => language) as (x: any) => x is Language);
+
+    if (list.length) {
+      return list;
+    }
   },
 };
