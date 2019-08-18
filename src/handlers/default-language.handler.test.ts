@@ -1,13 +1,13 @@
 import { addDefaultLanguage } from './default-language.handler';
 
-test('add a default language', () => {
+test('add a default language by country', () => {
   const source: any = {
     codes: {
       countries: [{ code: 'U' }],
     },
   };
   addDefaultLanguage(source);
-  expect(source.codes.languages).toEqual([{ code: 'Eng', name: 'English' }]);
+  expect(source.codes.languages).toEqual([{ code: 'Eng', name: 'English', default: true }]);
 });
 
 test('add only one default language even in case of multiple countries', () => {
@@ -17,7 +17,7 @@ test('add only one default language even in case of multiple countries', () => {
     },
   };
   addDefaultLanguage(source);
-  expect(source.codes.languages).toEqual([{ code: 'Ita', name: 'Italian' }]);
+  expect(source.codes.languages).toEqual([{ code: 'Ita', name: 'Italian', default: true }]);
 });
 
 test('does not overwrite the existing languages if property is defined', () => {
@@ -31,15 +31,15 @@ test('does not overwrite the existing languages if property is defined', () => {
   expect(source.codes.languages).toEqual([{ foo: 'bar' }]);
 });
 
-test('does not modify if translation is set', () => {
+test('add language from translation', () => {
   const source: any = {
     codes: {
-      translation: { foo: 'bar' },
+      translation: { code: 'Fre', name: 'French', foo: 'bar' },
       countries: [{ code: 'U' }],
     },
   };
   addDefaultLanguage(source);
-  expect(source.codes.languages).not.toBeDefined();
+  expect(source.codes.languages).toEqual([{ code: 'Fre', name: 'French', translation: true }]);
 });
 
 test('undefined', () => {

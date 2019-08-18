@@ -27,7 +27,13 @@ describe('unknown', () => {
   });
 });
 
-test('default language', () => {
-  const result = parse('Sonic The Hedgehog (W).gen');
-  expect(result.codes.languages).toEqual([{ code: 'Eng', name: 'English' }]);
+describe('default language', () => {
+  test('from country', () => {
+    const result = parse('Sonic The Hedgehog (W).gen');
+    expect(result.codes.languages).toEqual([{ code: 'Eng', name: 'English', default: true }]);
+  });
+  test('from translation', () => {
+    const result = parse('Duck Tales 2 (U) [T+Fre(Cigarette Patch featuring GreatSkaori)].nes');
+    expect(result.codes.languages).toEqual([{ code: 'Fre', name: 'French', translation: true }]);
+  });
 });

@@ -1,6 +1,8 @@
 export interface Language {
   code: string;
   name: string;
+  default?: boolean;
+  translation?: boolean;
 }
 export interface Country {
   code: string;
