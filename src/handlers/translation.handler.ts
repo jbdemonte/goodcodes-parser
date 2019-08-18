@@ -2,39 +2,37 @@ import { Language, languages } from '../tools/internationalization.tools';
 import { TranslationValue } from '../typing';
 import { CodeHandler } from './handler.types';
 
-type TranslationDescriptor = Language & { re: RegExp };
+const map: { [key: string]: Language } = {};
 
-const translations: TranslationDescriptor[] = languages.map(language => ({
-  ...language,
-  re: new RegExp('^(' + language.code + ')([0-9.]+(%?))?_?(.*)$'),
-}));
+languages.forEach(language => {
+  map[standardize(language.code)] = language;
+  map[standardize(language.name)] = language;
+});
+
+function standardize(code: string): string {
+  return code.toLowerCase().replace(/[^a-z]/g, '');
+}
 
 export const translationHandler: CodeHandler = {
   tags: ['[T+XXX]', '[T-XXX]'],
   key: 'translation',
   title: 'Translation',
   description: 'T+ : Most recent translation, T- : Obsolete translation',
-  re: /^\[T([+-])(.+)\]$/,
-  cast(match) {
+  re: /^\[T([+-])([a-z]+)([0-9.]+(%?))?_?(.*)\]$/i,
+  cast(match): TranslationValue {
     const latest = match[1] === '+';
-    const code: string = match[2];
-    const reducer = (result: TranslationValue | null, translation: TranslationDescriptor) => {
-      if (result) {
-        return result;
-      }
-      const codeMatch = code.match(translation.re);
-      if (codeMatch) {
-        return {
-          code: translation.code,
-          name: translation.name,
-          percent: (codeMatch[3] ? codeMatch[2] : '') || '',
-          version: (codeMatch[3] ? '' : codeMatch[2]) || '',
-          author: codeMatch[4] || '',
-          latest,
-        };
-      }
-      return null;
+    const language: Language | undefined = map[standardize(match[2])];
+
+    const percent = (match[4] ? match[3] : '') || '';
+    const version = (match[4] ? '' : match[3]) || '';
+    const author = match[5] || '';
+
+    return {
+      ...(language || { code: match[2], name: match[2] }),
+      percent,
+      version,
+      author,
+      latest,
     };
-    return translations.reduce(reducer, null) || {};
   },
 };
