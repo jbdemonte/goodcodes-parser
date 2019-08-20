@@ -37,3 +37,8 @@ describe('default language', () => {
     expect(result.codes.languages).toEqual([{ code: 'Fre', name: 'French', translation: true }]);
   });
 });
+
+test('add default version', () => {
+  const result = parse('Parasol Stars - The Story of Bubble Bobble 3 (E) [!].nes');
+  expect(result.codes.version).toEqual({ stable: { major: 1, minor: 0, patch: 0 } });
+});

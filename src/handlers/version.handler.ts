@@ -1,3 +1,4 @@
+import { VersionKey, VersionValue } from '../typing';
 import { CodeHandler } from './handler.types';
 
 function camelCase(source: string) {
@@ -31,13 +32,12 @@ export const alphaNumericVersionHandler: CodeHandler = {
   description: 'Type of version (Alpha, Beta...)',
   re: /^\((Alpha|Beta|Pre-Release|Prototype|Proto|Demo|Sample|old)(?:\s*(\d+)(?:\.(\d+)(?:\.(\d+))?)?)?\)$/i,
   cast(match) {
-    const result = {};
+    const result: VersionValue = {};
     let tag = camelCase(match[1]);
     if (tag === 'proto') {
       tag = 'prototype';
     }
-    // @ts-ignore
-    result[tag] = {
+    result[tag as VersionKey] = {
       major: match[2] ? parseInt(match[2], 10) : 1,
       minor: match[3] ? parseInt(match[3], 10) : 0,
       patch: match[4] ? parseInt(match[4], 10) : 0,

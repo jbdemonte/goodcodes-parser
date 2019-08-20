@@ -1,9 +1,9 @@
 import { parse } from '../index';
 
 describe('as numeric', () => {
-  test('undefined', () => {
+  test('Default value', () => {
     const result = parse('Mega Games 6 (Vol 1) (E) [!].gen');
-    expect(result.codes.version).toEqual(undefined);
+    expect(result.codes.version).toEqual({ stable: { major: 1, minor: 0, patch: 0 } });
   });
 
   test('V1', () => {
@@ -24,9 +24,9 @@ describe('as numeric', () => {
 
 describe('as alpha-numeric', () => {
   describe('without versioning', () => {
-    test('undefined', () => {
+    test('Default value', () => {
       const result = parse('Street Fighter Alpha 2 (E) [!].smc');
-      expect(result.codes.version).toEqual(undefined);
+      expect(result.codes.version).toEqual({ stable: { major: 1, minor: 0, patch: 0 } });
     });
 
     test('Alpha', () => {

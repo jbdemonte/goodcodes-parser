@@ -1,5 +1,6 @@
 import { parseCode } from './codes';
 import { addDefaultLanguage } from './handlers/default-language.handler';
+import { addDefaultVersion } from './handlers/default-version.handler';
 import { cleanFileName, removeExtension } from './tools/file.tools';
 import { GoodCodeResult } from './typing';
 
@@ -29,6 +30,7 @@ export function parse(file: string): GoodCodeResult {
   });
 
   addDefaultLanguage(result);
+  addDefaultVersion(result);
 
   return result;
 }
