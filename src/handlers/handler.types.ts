@@ -19,7 +19,7 @@ export type Caster = (
 export type CodeHandler = {
   tag?: string;
   tags?: string[]; // todo: l'un ou l'autre mais au moins un
-  key: CodeKeys;
+  key?: CodeKeys;
   title: string;
   description: string;
   re: RegExp;

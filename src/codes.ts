@@ -11,6 +11,7 @@ import { goodHandler } from './handlers/good.handler';
 import { hackHandler } from './handlers/hack.handler';
 import { hackedHandler } from './handlers/hacked.handler';
 import { CodeHandler } from './handlers/handler.types';
+import { ignoredHandler } from './handlers/ignored.handler';
 import { languageCountHandler } from './handlers/language-count.handler';
 import { languagesHandler } from './handlers/languages.handler';
 import { overdumpedHandler } from './handlers/overdumped.handler';
@@ -43,6 +44,7 @@ const handlers: CodeHandler[] = [
   compilationHandler,
   countriesHandler,
   languagesHandler,
+  ignoredHandler,
 ];
 
 export function parseCode(code: string): CodeResult | undefined {
@@ -52,8 +54,10 @@ export function parseCode(code: string): CodeResult | undefined {
     if (match) {
       const value = handler.cast ? handler.cast(match) : true;
       if (value !== undefined) {
-        // @ts-ignore
-        result[handler.key] = value;
+        if (handler.key) {
+          // @ts-ignore
+          result[handler.key] = value;
+        }
         return result;
       }
     }
