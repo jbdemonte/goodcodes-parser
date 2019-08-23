@@ -13,7 +13,7 @@ export const languagesHandler: CodeHandler = {
   key: 'languages',
   title: 'Language list',
   description: 'List of language for a ROM',
-  re: /^\(([a-z, ]+)\)$/i,
+  re: /^\(([a-z, -]+)\)$/i,
   cast(match) {
     const list = standardizeLanguages(match[1])
       .split(/[,\s]+/)

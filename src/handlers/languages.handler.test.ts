@@ -22,7 +22,10 @@ test('Multiple languages spaced separated', () => {
 
 test('Multiple languages spaced separated containing spaces', () => {
   const result = parse('Example (Simplified Chinese Traditional Chinese).nes');
-  expect(result.codes.languages).toEqual([{ code: 'SChi', name: 'Simplified Chinese' }, { code: 'TChi', name: 'Traditional Chinese' }]);
+  expect(result.codes.languages).toEqual([
+    { code: expect.any(String), name: 'Simplified Chinese' },
+    { code: expect.any(String), name: 'Traditional Chinese' },
+  ]);
 });
 
 test('Special case of Portuguese', () => {
@@ -33,4 +36,9 @@ test('Special case of Portuguese', () => {
 test('return undefined', () => {
   const result = parse('Action 52 (Active Enterprises) [!].nes');
   expect(result.codes.languages).not.toBeDefined();
+});
+
+test('return Simplified Chinese', () => {
+  const result = parse('Conquering the World III (Ch-Simple).bin');
+  expect(result.codes.languages).toEqual([{ code: 'Ch-Simple', name: 'Simplified Chinese' }]);
 });
