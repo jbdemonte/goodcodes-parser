@@ -8,6 +8,7 @@ import { countriesHandler } from './handlers/countries.handler';
 import { fixedHandler } from './handlers/fixed.handler';
 import { formatHandler } from './handlers/format.handler';
 import { goodHandler } from './handlers/good.handler';
+import { hackHandler } from './handlers/hack.handler';
 import { hackedHandler } from './handlers/hacked.handler';
 import { CodeHandler } from './handlers/handler.types';
 import { languageCountHandler } from './handlers/language-count.handler';
@@ -23,6 +24,7 @@ import { CodeResult } from './typing';
 
 const handlers: CodeHandler[] = [
   goodHandler,
+  hackHandler,
   pendingHandler,
   alternativeandler,
   fixedHandler,

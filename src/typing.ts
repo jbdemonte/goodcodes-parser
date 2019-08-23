@@ -1,6 +1,6 @@
 import { Country, Language } from './tools/internationalization.tools';
 
-export type BoolKey = 'good' | 'pending' | 'compilation';
+export type BoolKey = 'good' | 'pending' | 'compilation' | 'hack';
 
 export type NumberKey = 'revision' | 'languageCount';
 
