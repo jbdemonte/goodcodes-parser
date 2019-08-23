@@ -2,6 +2,7 @@
 
 import { alternativeandler } from './handlers/alternative.handler';
 import { badHandler } from './handlers/bad.handler';
+import { checksumHandler } from './handlers/checksum.handler';
 import { compilationHandler } from './handlers/compilation.handler';
 import { countriesHandler } from './handlers/countries.handler';
 import { fixedHandler } from './handlers/fixed.handler';
@@ -28,6 +29,7 @@ const handlers: CodeHandler[] = [
   overdumpedHandler,
   piratedHandler,
   badHandler,
+  checksumHandler,
   trainedHandler,
   hackedHandler,
   revisionHandler,

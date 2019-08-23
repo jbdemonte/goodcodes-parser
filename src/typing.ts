@@ -8,7 +8,7 @@ export type VersionedKey = 'alternative' | 'fixed' | 'overdumped' | 'pirated' | 
 
 export type VersionKey = 'stable' | 'alpha' | 'beta' | 'preRelease' | 'prototype' | 'demo' | 'sample' | 'old';
 
-export type CodeKeys = BoolKey | VersionedKey | NumberKey | 'version' | 'format' | 'translation' | 'countries' | 'languages';
+export type CodeKeys = BoolKey | VersionedKey | NumberKey | 'version' | 'format' | 'checksum' | 'translation' | 'countries' | 'languages';
 
 export interface VersionedValue {
   major: number;
@@ -35,6 +35,11 @@ export interface TranslationValue extends Language {
   version: string;
 }
 
+export interface ChecksumValue {
+  good?: true;
+  bad?: true;
+}
+
 type NumberResult = {
   [key in NumberKey]: number;
 };
@@ -51,6 +56,7 @@ interface BaseResult {
   hacked: boolean | HackedValue;
   version: VersionValue;
   format: FormatValue;
+  checksum: ChecksumValue;
   translation: TranslationValue;
   countries: Country[];
   languages: Language[];
