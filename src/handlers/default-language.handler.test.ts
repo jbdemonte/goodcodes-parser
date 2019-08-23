@@ -10,14 +10,24 @@ test('add a default language by country', () => {
   expect(source.codes.languages).toEqual([{ code: 'Eng', name: 'English', default: true }]);
 });
 
-test('add only one default language even in case of multiple countries', () => {
+test('add multiple default language', () => {
   const source: any = {
     codes: {
-      countries: [{ code: 'I' }, { code: 'U' }],
+      countries: [{ code: 'J' }, { code: 'U' }],
     },
   };
   addDefaultLanguage(source);
-  expect(source.codes.languages).toEqual([{ code: 'Ita', name: 'Italian', default: true }]);
+  expect(source.codes.languages).toEqual([{ code: 'Jap', name: 'Japanese', default: true }, { code: 'Eng', name: 'English', default: true }]);
+});
+
+test('does not duplicate default language', () => {
+  const source: any = {
+    codes: {
+      countries: [{ code: 'UK' }, { code: 'U' }],
+    },
+  };
+  addDefaultLanguage(source);
+  expect(source.codes.languages).toEqual([{ code: 'Eng', name: 'English', default: true }]);
 });
 
 test('does not overwrite the existing languages if property is defined', () => {
