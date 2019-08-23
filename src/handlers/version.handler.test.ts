@@ -71,6 +71,11 @@ describe('as alpha-numeric', () => {
       expect(result.codes.version).toEqual({ beta: { major: 2, minor: 0, patch: 0 } });
     });
 
+    test('Alpha4', () => {
+      const result = parse('Wolfenstein 3D by Chilly Willy (Alpha4) (32X).32x');
+      expect(result.codes.version).toEqual({ alpha: { major: 4, minor: 0, patch: 0 } });
+    });
+
     test('Pre-Release 3.6', () => {
       const result = parse('Power Piggs of the Dark Age (Pre-Release 3.6) [h1+C].smc');
       expect(result.codes.version).toEqual({ preRelease: { major: 3, minor: 6, patch: 0 } });
@@ -84,6 +89,11 @@ describe('as alpha-numeric', () => {
     test('Proto 12.23.34', () => {
       const result = parse('Rap Basketball (U) (Proto 12.23.34).smc');
       expect(result.codes.version).toEqual({ prototype: { major: 12, minor: 23, patch: 34 } });
+    });
+
+    test('Prototype - Any', () => {
+      const result = parse('Adventures of Batman and Robin, The (U) (Prototype - Apr 21, 1995)');
+      expect(result.codes.version).toEqual({ prototype: { major: 1, minor: 0, patch: 0 } });
     });
 
     test('old', () => {

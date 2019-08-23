@@ -30,7 +30,7 @@ export const alphaNumericVersionHandler: CodeHandler = {
   key: 'version',
   title: 'Version type',
   description: 'Type of version (Alpha, Beta...)',
-  re: /^\((Alpha|Beta|Pre-Release|Prototype|Proto|Demo|Sample|old)(?:\s*(\d+)(?:\.(\d+)(?:\.(\d+))?)?)?\)$/i,
+  re: /^\((Alpha|Beta|Pre-Release|Prototype|Proto|Demo|Sample|old)(?:\s*(?:(\d+)(?:\.(\d+)(?:\.(\d+))?)?)|(.*))?\)$/i,
   cast(match) {
     const result: VersionValue = {};
     let tag = camelCase(match[1]);
