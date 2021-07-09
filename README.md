@@ -1,6 +1,6 @@
 # goodcodes-parser
 
-[![travis build](https://img.shields.io/travis/jbdemonte/goodcodes-parser.svg)](https://travis-ci.org/jbdemonte/goodcodes-parser)
+[![travis build](https://img.shields.io/travis/com/jbdemonte/goodcodes-parser.svg)](https://travis-ci.com/jbdemonte/goodcodes-parser)
 [![Coverage Status](https://coveralls.io/repos/github/jbdemonte/goodcodes-parser/badge.svg?branch=master)](https://coveralls.io/github/jbdemonte/goodcodes-parser?branch=master)
 ![node (tag)](https://img.shields.io/node/v/goodcodes-parser/latest.svg)
 
