@@ -19,6 +19,6 @@ export function cleanFileName(file: string): string {
     .trim();
 }
 
-export function removeExtension(file: string) {
+export function removeExtension(file: string): string {
   return file.replace(re.extension, '');
 }

@@ -19,7 +19,7 @@ export const languagesHandler: CodeHandler = {
       .split(/[,\s]+/)
       .map(tag => tag.trim())
       .map(tag => (map[tag] ? { ...map[tag] } : null))
-      .filter((language => language) as (x: any) => x is Language);
+      .filter(((language: Language | null) : language is Language => Boolean(language)));
 
     if (list.length) {
       return list;

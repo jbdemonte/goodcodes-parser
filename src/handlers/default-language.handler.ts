@@ -14,7 +14,7 @@ export function addDefaultLanguage(result: GoodCodeResult): void {
             return { ...language, default: true } as Language;
           }
         })
-        .filter((language => language) as (x: any) => x is Language);
+        .filter(((language: Language | undefined) : language is Language => Boolean(language)));
       result.codes.languages = languages.filter(language => language === languages.find(item => item.code === language.code));
     }
   }

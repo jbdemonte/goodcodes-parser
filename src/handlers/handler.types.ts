@@ -2,6 +2,7 @@ import { Country, Language } from '../tools/internationalization.tools';
 import { ChecksumValue, CodeKeys, FormatValue, HackedValue, TranslationValue, VersionedValue, VersionValue } from '../typing';
 
 export type Caster = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   match: any,
 ) =>
   | boolean
@@ -18,7 +19,7 @@ export type Caster = (
 
 export type CodeHandler = {
   tag?: string;
-  tags?: string[]; // todo: l'un ou l'autre mais au moins un
+  tags?: string[];
   key?: CodeKeys;
   title: string;
   description: string;
