@@ -7,6 +7,9 @@
     "pre-commit": [
         "lint"
     ],
+    "engines": {
+        "node": ">=8"
+    },
     "scripts": {
         "test": "jest --silent=false --config=jest.json --testRegex='/src/.*\\.test\\.ts$'",
         "lint": "eslint src/**/*.ts",
