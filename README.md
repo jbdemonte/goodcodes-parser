@@ -6,7 +6,7 @@
 
 ## Description
 
-This tools extracts [GoodCodes](http://emulation.gametechwiki.com/index.php/GoodTools) from ROM names an returns a structured dataset.
+This tools extracts [GoodCodes](http://emulation.gametechwiki.com/index.php/GoodTools) from ROM names and returns a structured dataset.
 
 ## Installation
 
@@ -40,4 +40,4 @@ console.log(result);
 }
 ```
 
-Have a look on the typing or on the tests to the all keys possibles.
+Have a look on the typing or on the tests to see the result keys.
